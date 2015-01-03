@@ -25,7 +25,7 @@ class GoogleDoc(object):
     key = None
     file_format = 'csv'
     file_name = 'copy'
-    gid = '0'
+    gid = '1'
 
     # You can change these with kwargs but it's not recommended.
     spreadsheet_url = 'https://spreadsheets.google.com/feeds/download/spreadsheets/Export?key=%(key)s&exportFormat=%(format)s&gid=%(gid)s'
@@ -63,7 +63,6 @@ class GoogleDoc(object):
             data['session'] = self.session
 
             r = requests.post("https://www.google.com/accounts/ClientLogin", data=data)
-            print r
 
             self.auth = r.content.split('\n')[2].split('Auth=')[1]
 
@@ -83,6 +82,7 @@ class GoogleDoc(object):
 
             url_params = { 'key': self.key, 'format': self.file_format, 'gid': self.gid }
             url = self.spreadsheet_url % url_params
+            print url
 
             r = requests.get(url, headers=headers)
 
