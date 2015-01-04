@@ -17,7 +17,7 @@ class GoogleDoc(object):
         g = GoogleDoc(**doc)
         g.get_auth()
         g.get_document()
-    Will download your google doc to data/file_name.format.
+    Will download your google doc to file_name.format.
     """
 
     # You can update these values with kwargs.
@@ -82,7 +82,6 @@ class GoogleDoc(object):
 
             url_params = { 'key': self.key, 'format': self.file_format, 'gid': self.gid }
             url = self.spreadsheet_url % url_params
-            print url
 
             r = requests.get(url, headers=headers)
 

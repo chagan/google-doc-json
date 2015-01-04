@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-import requests
 from gdocs import GoogleDoc
+import glob, subprocess
 
 url = 'https://docs.google.com/spreadsheet/ccc?key=0AkY5o_aAkwFydEctaXllbzlGUGRLanVQc0hSMlo5YXc'
     
@@ -19,5 +19,12 @@ def get_doc(url):
         g.get_auth()
         g.get_document()
 
+def gdoc_to_json():
+	for files in glob.glob("*.csv"):
+		print files
+		subprocess.call('csvjson %s > output.json' % files, shell=True) 
+
+
 if __name__ == "__main__":
 	get_doc(url)
+	gdoc_to_json()
