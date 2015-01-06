@@ -34,7 +34,7 @@ def csv_to_json(source):
 
 	final_json = {'cards': output}
 	
-	with open('output.json', 'w') as outfile:
+	with open('data/output.json', 'w') as outfile:
 		json.dump(final_json, outfile)
 
 
