@@ -3,7 +3,7 @@
 from gdocs import GoogleDoc
 import glob, subprocess, json, csv
 
-url = 'https://docs.google.com/spreadsheet/ccc?key=0AkY5o_aAkwFydEctaXllbzlGUGRLanVQc0hSMlo5YXc'
+url = 'https://docs.google.com/spreadsheet/ccc?key=1ySSgnYPjz3054EGxUDLiPffFb42dTpzY6R98jFCe-wQ'
     
 def get_doc(url):
     if url == None:
@@ -21,8 +21,6 @@ def get_doc(url):
 
 def gdoc_to_json():
 	for files in glob.glob("*.csv"):
-		# print files
-		subprocess.call('csvjson %s > output_csvkit.json' % files, shell=True)
 		csv_to_json(files)
 
 def csv_to_json(source):
@@ -34,7 +32,7 @@ def csv_to_json(source):
 
 	final_json = {'cards': output}
 	
-	with open('data/output.json', 'w') as outfile:
+	with open('data/podcast.json', 'w') as outfile:
 		json.dump(final_json, outfile)
 
 

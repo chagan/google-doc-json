@@ -25,7 +25,7 @@ class GoogleDoc(object):
     key = None
     file_format = 'csv'
     file_name = 'copy'
-    gid = '1'
+    gid = '0'
 
     # You can change these with kwargs but it's not recommended.
     spreadsheet_url = 'https://spreadsheets.google.com/feeds/download/spreadsheets/Export?key=%(key)s&exportFormat=%(format)s&gid=%(gid)s'
@@ -33,7 +33,7 @@ class GoogleDoc(object):
     auth = None
     email = os.environ.get('APPS_GOOGLE_EMAIL', None)
     password = os.environ.get('APPS_GOOGLE_PASS', None)
-    scope = "https://spreadsheets.google.com/feeds/"
+    scope = "https://spreadsheets.google.com/feeds/ https://docs.google.com/feeds/"
     service = "wise"
     session = "1"
 

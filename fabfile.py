@@ -3,4 +3,4 @@
 from fabric.api import local
 
 def deploy():
-	local( "aws s3 sync data s3://app-test-assets/ --exclude *.tmp" )
+	local( "aws s3 sync data s3://wbez-assets/podcast-static/ --exclude *.tmp" )
