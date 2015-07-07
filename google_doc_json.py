@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 from gdocs import GoogleDoc
-import glob, subprocess, json, csv, argparse, config
+import oauth
+import glob, subprocess, json, csv, argparse, config, os
 
 
 parser = argparse.ArgumentParser()
@@ -31,19 +32,26 @@ def csv_to_json(source):
 			output.append(row)
 
 	final_json = {config.top_level_key: output}
+	newfile = "data/%s" % config.output_file
+	oldfile = "data/old-%s" % config.output_file
+	print newfile, oldfile
 	
-	with open(config.output_file, 'w') as outfile:
+	with open(newfile, 'w') as outfile:
+		print "file open"
+		os.rename(newfile, oldfile)
 		json.dump(final_json, outfile)
 
 def gdoc_to_json():
 	if args.convertall:
 		for files in glob.glob("*.csv"):
+			print files
 			csv_to_json(files)
 	elif args.input:
 		csv_to_json(args.input)
+	elif config.input_file:
+		csv_to_json(config.input_file)
 	else:
-		print 'We need a csv file. Convert a Google doc or specify a local file with the -i flag'
-        return
+		raise Exception('We need a csv file. Convert a Google doc or specify a local file with the -i flag')
 
 
 if __name__ == "__main__":

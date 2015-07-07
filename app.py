@@ -2,7 +2,9 @@
 
 from flask import Flask, make_response, render_template, request
 import google_doc_json as gdocjson
+import config
 from fabric.api import local
+from fabfile import deploy
 
 
 app = Flask(__name__)
@@ -15,7 +17,9 @@ def index():
 
     if request.method == 'POST':
         try:
+            gdocjson.get_doc(config.URL)
             gdocjson.gdoc_to_json()
+            #deploy()
 
         except Exception as e:
             return "There was a problem. % s" % e
@@ -24,4 +28,4 @@ def index():
 
 if __name__ == '__main__':
 
-    app.run(debug=True)
+    app.run(debug=True, port=8081)

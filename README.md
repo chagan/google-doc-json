@@ -19,7 +19,7 @@ APPS_GOOGLE_EMAIL='youremail@gmail.com'
 APPS_GOOGLE_PASS='notARealPassword'
 ```
 
-Additionally, within google-doc-json.py set the url of the spreadsheet you wan to convert and location and name of the file you wanto create.
+Additionally, within google-doc-json.py set the url of the spreadsheet you want to convert and location and name of the file you wanto create.
 
 Currently the workflow is to run google-doc-json.py to download and conver the file, then use fabric to upload it to S3. So in your commandline you would run:
 ```
