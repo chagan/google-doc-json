@@ -21,7 +21,7 @@ def csv_to_json(source):
 
 	final_json = {config.TOP_LEVEL_KEY: output}
 	new_file = "data/%s" % config.OUTPUT_FILE
-	backup_file = "data/old-%s" % config.OUTPUT_FILE
+	backup_file = "data/backup-%s" % config.OUTPUT_FILE
 	if os.path.exists(new_file):
 		os.rename(new_file, backup_file)
 	

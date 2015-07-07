@@ -15,7 +15,7 @@ Set arguements to use with oauth.py:
 """
 
 TOP_LEVEL_KEY = "cards"
-OUTPUT_FILE = 'podcast-test.json'
+OUTPUT_FILE = 'podcast.json'
 
 COPY_GOOGLE_DOC_KEY = '1ySSgnYPjz3054EGxUDLiPffFb42dTpzY6R98jFCe-wQ'
 COPY_PATH = 'data/copy.csv'
