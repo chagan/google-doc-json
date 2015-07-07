@@ -4,20 +4,22 @@ from authomatic import Authomatic
 import os
 
 """
-Set arguements to use with gdocs.py:
-	-URL is the location of the Google spreadsheet that will be converted.
-	-top_level_key is the name of the top level key to set with the final json.
-	-input_file is the location of the csv file you want to conver to json. 
-	 This is optional if you set the --convertall flag, which will convert all
-	 the csvs in the current directory.
-	-output_file is the name of the final outputted json.
+Set arguements to use with oauth.py:
+	* TOP_LEVEL_KEY is the name of the top level key to set with the final json.
+	* OUTPUT_FILE is the name of the final outputted json.
+	* COPY_GOOGLE_DOC_KEY is key for google doc to download
+	* COPY_PATH is location to save downloaded csv
+	* S3_PATH is path to S3 bucket to upload json to
+
+	See README for instructions on setting up oauth
 """
 
-top_level_key = "cards"
-output_file = 'podcast.json'
+TOP_LEVEL_KEY = "cards"
+OUTPUT_FILE = 'podcast-test.json'
 
 COPY_GOOGLE_DOC_KEY = '1ySSgnYPjz3054EGxUDLiPffFb42dTpzY6R98jFCe-wQ'
 COPY_PATH = 'data/copy.csv'
+S3_PATH = 's3://wbez-assets/podcast-static/'
 
 """
 OAUTH
